@@ -15,7 +15,7 @@ public class GTCAdditions{
     public static final String MODID = "gtc_additions";
     public static final String MODNAME = "GTC Additions";
     public static final String MODVERSION = "@VERSION@";
-    public static final String DEPENDS = "required-after:ic2;required-after:ic2-classic-spmod;required-after:gtclassic@[1.1.3,)";
+    public static final String DEPENDS = "required-after:ic2;required-after:ic2-classic-spmod;required-after:gtclassic@[1.1.3,);required-after:gtc_expansion@[0.2,)";
     @SidedProxy(clientSide = MODID + ".proxy.GTCAClientProxy", serverSide = MODID + ".proxy.GTCACommonProxy")
     public static GTCACommonProxy proxy;
     @Mod.Instance
