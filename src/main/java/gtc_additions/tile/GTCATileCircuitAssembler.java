@@ -1,5 +1,6 @@
 package gtc_additions.tile;
 
+import gtc_additions.GTCAMachineGui;
 import gtc_additions.GTCAdditions;
 import gtc_additions.container.GTCAContainerCircuitAssembler;
 import gtc_additions.recipes.GTCARecipeLists;
@@ -9,6 +10,7 @@ import ic2.api.classic.item.IMachineUpgradeItem;
 import ic2.core.inventory.container.ContainerIC2;
 import ic2.core.inventory.filters.IFilter;
 import ic2.core.inventory.filters.MachineFilter;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
@@ -59,6 +61,11 @@ public class GTCATileCircuitAssembler extends GTTileBaseMachine {
     @Override
     public ContainerIC2 getGuiContainer(EntityPlayer entityPlayer) {
         return new GTCAContainerCircuitAssembler(this, entityPlayer.inventory);
+    }
+
+    @Override
+    public Class<? extends GuiScreen> getGuiClass(EntityPlayer player) {
+        return GTCAMachineGui.GTCACircuitAssemblerGui.class;
     }
 
     public ResourceLocation getGuiTexture() {

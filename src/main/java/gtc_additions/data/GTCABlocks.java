@@ -1,6 +1,9 @@
 package gtc_additions.data;
 
 import gtc_additions.block.GTCABlockTile;
+import gtc_additions.tile.GTCATileAutoclave;
+import gtc_additions.tile.GTCATileCircuitAssembler;
+import gtc_additions.tile.GTCATileLaminator;
 import gtc_expansion.block.GTCXBlockTile;
 import gtc_expansion.item.itemblock.GTCXColorItemBlock;
 import gtclassic.api.interfaces.IGTColorBlock;
@@ -9,6 +12,8 @@ import gtclassic.api.item.GTItemBlock;
 import ic2.core.IC2;
 import ic2.core.item.block.ItemBlockRare;
 import net.minecraft.block.Block;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,5 +51,15 @@ public class GTCABlocks {
         } else {
             return block instanceof IGTColorBlock ? GTCXColorItemBlock.class : GTItemBlock.class;
         }
+    }
+
+    public static void registerTiles() {
+        registerUtil(GTCATileCircuitAssembler.class, "CircuitAssembler");
+        registerUtil(GTCATileAutoclave.class, "Autoclave");
+        registerUtil(GTCATileLaminator.class, "Laminator");
+    }
+
+    public static void registerUtil(Class tile, String name) {
+        GameRegistry.registerTileEntity(tile, new ResourceLocation("gtc_additions", "tileEntity" + name));
     }
 }
