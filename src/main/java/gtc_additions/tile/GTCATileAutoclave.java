@@ -1,6 +1,7 @@
 package gtc_additions.tile;
 
 import gtc_additions.GTCAdditions;
+import gtc_additions.container.GTCAContainerAutoclave;
 import gtc_additions.recipes.GTCARecipeLists;
 import gtclassic.api.recipe.GTRecipeMultiInputList;
 import gtclassic.api.tile.GTTileBaseMachine;
@@ -17,7 +18,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class GTCXTileAutoclave extends GTTileBaseMachine {
+public class GTCATileAutoclave extends GTTileBaseMachine {
     public IFilter filter = new MachineFilter(this);
     private static final int defaultEu = 64;
     static final int SLOT_FUEL = 4;
@@ -28,7 +29,7 @@ public class GTCXTileAutoclave extends GTTileBaseMachine {
     @NetworkField(index = 13)
     private IC2Tank tank;
     public static final ResourceLocation GUI_LOCATION = new ResourceLocation(GTCAdditions.MODID, "textures/gui/autoclave.png");
-    public GTCXTileAutoclave() {
+    public GTCATileAutoclave() {
         super(5, 2, defaultEu, 100, 128);
         this.setFuelSlot(SLOT_FUEL);
     }
@@ -65,6 +66,10 @@ public class GTCXTileAutoclave extends GTTileBaseMachine {
 
     @Override
     public ContainerIC2 getGuiContainer(EntityPlayer entityPlayer) {
-        return null;
+        return new GTCAContainerAutoclave(this, entityPlayer.inventory);
+    }
+
+    public ResourceLocation getGuiTexture() {
+        return GUI_LOCATION;
     }
 }

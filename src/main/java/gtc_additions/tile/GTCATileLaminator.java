@@ -1,5 +1,7 @@
 package gtc_additions.tile;
 
+import gtc_additions.GTCAdditions;
+import gtc_additions.container.GTCAContainerLaminator;
 import gtc_additions.recipes.GTCARecipeLists;
 import gtclassic.api.recipe.GTRecipeMultiInputList;
 import gtclassic.api.tile.GTTileBaseMachine;
@@ -8,6 +10,7 @@ import ic2.core.inventory.container.ContainerIC2;
 import ic2.core.inventory.filters.IFilter;
 import ic2.core.inventory.filters.MachineFilter;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -17,6 +20,7 @@ public class GTCATileLaminator extends GTTileBaseMachine {
     public IFilter filter = new MachineFilter(this);
     private static final int defaultEu = 4;
     static final int slotFuel = 3;
+    public static final ResourceLocation GUI_LOCATION = new ResourceLocation(GTCAdditions.MODID, "textures/gui/laminator.png");
     public GTCATileLaminator() {
         super(4, 4, defaultEu, 100, 32);
         this.setFuelSlot(slotFuel);
@@ -54,6 +58,10 @@ public class GTCATileLaminator extends GTTileBaseMachine {
 
     @Override
     public ContainerIC2 getGuiContainer(EntityPlayer entityPlayer) {
-        return null;
+        return new GTCAContainerLaminator(this, entityPlayer.inventory);
+    }
+
+    public ResourceLocation getGuiTexture() {
+        return GUI_LOCATION;
     }
 }
