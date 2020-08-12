@@ -13,18 +13,18 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-public class GTCATileCircuitAssembler extends GTTileBaseMachine {
+public class GTCATileLaminator extends GTTileBaseMachine {
     public IFilter filter = new MachineFilter(this);
-    private static final int defaultEu = 8;
-    static final int slotFuel = 8;
-    public GTCATileCircuitAssembler() {
-        super(8, 4, defaultEu, 100, 32);
+    private static final int defaultEu = 4;
+    static final int slotFuel = 3;
+    public GTCATileLaminator() {
+        super(4, 4, defaultEu, 100, 32);
         this.setFuelSlot(slotFuel);
     }
 
     @Override
     public int[] getInputSlots() {
-        return new int[]{ 0, 1, 2 ,3 ,4 ,5 };
+        return new int[]{ 0, 1 };
     }
 
     @Override
@@ -34,17 +34,17 @@ public class GTCATileCircuitAssembler extends GTTileBaseMachine {
 
     @Override
     public boolean isRecipeSlot(int i) {
-        return i < 6;
+        return i < 2;
     }
 
     @Override
     public int[] getOutputSlots() {
-        return new int[]{ 6, 7 };
+        return new int[]{ 2 };
     }
 
     @Override
     public GTRecipeMultiInputList getRecipeList() {
-        return GTCARecipeLists.CIRCUIT_ASSEMBLER_RECIPE_LIST;
+        return GTCARecipeLists.LAMINATOR_RECIPE_LIST;
     }
 
     @Override
