@@ -10,8 +10,7 @@ public class GTCACommonProxy {
     public void preInit(FMLPreInitializationEvent e) {
         GTCABlocks.registerBlocks();
         //GTCAItems.registerItems();
-        //GTCABlocks.registerTiles();
-        //GTCACrops.init();
+        GTCABlocks.registerTiles();
         //GTCAOreDict.init();
     }
 

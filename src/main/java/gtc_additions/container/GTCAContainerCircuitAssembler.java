@@ -1,6 +1,7 @@
 package gtc_additions.container;
 
 import gtc_additions.tile.GTCATileCircuitAssembler;
+import gtclassic.api.gui.GTGuiCompMachinePower;
 import gtclassic.api.gui.GTSlotUpgrade;
 import ic2.core.inventory.container.ContainerTileComponent;
 import ic2.core.inventory.gui.GuiIC2;
@@ -32,6 +33,8 @@ public class GTCAContainerCircuitAssembler extends ContainerTileComponent<GTCATi
         for (int i = 0; i < 4; ++i) {
             this.addSlotToContainer(new GTSlotUpgrade(tile, 9 + i, 62 + (i * 18), 62));
         }
+        this.addComponent(new GTGuiCompMachinePower(tile));
+        this.addPlayerInventory(player);
         this.addComponent(new MachineProgressComp(tile, machineProgressBox, machineProgressPos));
     }
 

@@ -1,6 +1,7 @@
 package gtc_additions.container;
 
 import gtc_additions.tile.GTCATileAutoclave;
+import gtclassic.api.gui.GTGuiCompMachinePower;
 import gtclassic.api.gui.GTSlotUpgrade;
 import ic2.core.inventory.container.ContainerTileComponent;
 import ic2.core.inventory.gui.GuiIC2;
@@ -30,6 +31,8 @@ public class GTCAContainerAutoclave extends ContainerTileComponent<GTCATileAutoc
         for (int i = 0; i < 2; ++i) {
             this.addSlotToContainer(new GTSlotUpgrade(tile, 5 + i, 152, 25 + (i * 18)));
         }
+        this.addComponent(new GTGuiCompMachinePower(tile));
+        this.addPlayerInventory(player);
         this.addComponent(new MachineProgressComp(tile, machineProgressBox, machineProgressPos));
     }
 
